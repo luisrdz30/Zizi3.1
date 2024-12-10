@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZIZI'S</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/estilo.css">
+    </head>
+    
+<body>
+
+    <!-- Encabezado con Menú de Navegación y Título Centrado -->
+    <header>
+        <div class="logo">
+            <img src="./images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+
+        <!-- Icono del menú para pantallas pequeñas -->
+        <nav id="menu-icon">
+            <span>&#9776; Menu</span> <!-- Puedes usar un ícono textual -->
+        </nav>
+        <div class="header-container">
+            <div id="menuprincipal" class="nav-menu">
+                <ul>
+                    <li><a href="./zizis.html" class="active">INICIO</a></li>
+                    <li><a href="./pages/producto.html">PRODUCTOS</a></li>
+                    <li><a href="./pages/empresa.html" class="highlight">QUIENES SOMOS</a></li>
+                    <li><a href="./pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="./pages/ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            
+            <div class="icons">
+                <a href="#" onclick="checkLogin()">🛒 <span class="count">0</span></a>
+                <a href="./zizis.html"><span>❤️</span> <span class="count">0</span></a>
+                <a href="./pages/usuario/inicio-sesion.html"><span>👤</span></a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Video en lugar de Imagen Estática -->
+    <div class="carousel-static">
+        <video autoplay loop muted playsinline>
+            <source src="./videos/intro-zizi.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+        <h2>ZiZi'S <small>NEW DROP</small></h2>
+    </div>
+
+
+    <!-- Sección de Productos Destacados -->
+    <section class="featured-products">
+        <!-- Producto Destacado Principal -->
+        <div class="main-product">
+            <img src="./images/producto/ropa3.jpg" alt="Producto Destacado">
+            <div class="main-product-overlay">
+                <h2>PRODUCTOS DESTACADOS</h2>
+                <a href="./pages/producto.html">
+                    <button>VER MÁS</button>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Productos Secundarios -->
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/hoodie-blanco.jpg" alt="hoodie-blanco">
+                <p class="category">HOODIES</p>
+                <h3>HOODIE BLANCO SEMI OVERSIZE</h3>
+                <p class="price">27,50 $</p>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/peluche-salchicha.jpg" alt="Pantalón Double Function">
+                <p class="category">ARTICULOS EXCLUSIVOS</p>
+                <h3>PELUCHE PERRO SALCHICHA</h3>
+                <p class="price">24,00 $</p>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/bolso-hombre.jpg" alt="Buso Reds Boxy Fit">
+                <p class="category">BOLSOS</p>
+                <h3>BOLSO HOMBRE FIT</h3>
+                <p class="price">16,50 $</p>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/gorra.jpg" alt="Bermuda Lens">
+                <p class="category">GORRAS</p>
+                <h3>GORRA BASIC</h3>
+                <p class="price">10,00 $</p>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/bolso-hombre6.jpeg" alt="Bermuda Lens">
+                <p class="category">BOLSO</p>
+                <h3>BOLSO</h3>
+                <p class="price">10,00 $</p>
+            </div>
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/mochila4.jpeg" alt="Bermuda Lens">
+                <p class="category">MOCHILA</p>
+                <h3>MOCHILA</h3>
+                <p class="price">20,00 $</p>
+            </div>
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/ropa34.jpeg" alt="Bermuda Lens">
+                <p class="category">ZAPATILLAS</p>
+                <h3>ZAPATILLAS</h3>
+                <p class="price">30,00 $</p>
+            </div>
+            <div class="product-card">
+                <span class="tag">Nuevo</span>
+                <img src="./images/producto/gorra-lana3.jpeg" alt="Bermuda Lens">
+                <p class="category">GORRA LANA</p>
+                <h3>GORRA LANA</h3>
+                <p class="price">10,00 $</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Redes Sociales y Contacto -->
+    <section class="social-contact">
+        <h2>SÍGUENOS</h2>
+        <!-- Imagen con enlace -->
+        <a href="./zizis.html" target="_blank">
+            <img src="./images/logos/logoZizi.png" alt="Zizi's Logo">
+        </a>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="./images/logos/logoinsta.jpg" alt="Instagram"></a>
+            <a href="https://tiktok.com" target="_blank">
+                <img src="./images/logos/logo toktok.png" alt="TikTok"></a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="./images/logos/logoface.png" alt="Facebook"></a>
+        </div>
+    </section>
+
+    <!-- Sección del Reproductor de Video -->
+    <section class="video-section">
+        <h2>Explora ZIZI'S</h2>
+        <video width="100%" controls poster="./images/logos/logoZizi.png">
+            <source src="./videos/intro-zizi.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </section>
+
+    <!-- Sección de Comentarios -->
+    <section class="contact-us">
+        <div class="contact-content">
+            <p>DÉJANOS TUS COMENTARIOS, TESTIMONIOS O SUGERENCIAS</p>
+            <h2>QUEREMOS SABER DE TI</h2>
+            <a href="./pages/contacto.html">
+                <button class="main-button">ESCRÍBENOS ➔</button>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ZIZI'S - Dearechos muy reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function checkLogin() {
+            const email = localStorage.getItem('email');
+            const password = localStorage.getItem('password');
+
+            // Verificar si las credenciales están en localStorage
+            if (email === 'user@gmail.com' && password === 'alfajor') {
+                // Redirigir al carrito de compras si ya inició sesión
+                window.location.href = './pages/carrito-compras.html';
+            } else {
+                // Si no ha iniciado sesión, redirigir a la página de inicio de sesión
+                window.location.href = './pages/usuario/inicio-sesion.html';
+            }
+        }
+    </script>
+
+
+</body>
+</html>

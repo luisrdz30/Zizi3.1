@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos - ZIZI'S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+
+    <!-- Encabezado con Menú de Navegación y Título Centrado -->
+    <header>
+        <div class="logo">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+        
+        <!-- Icono del menú para pantallas pequeñas -->
+        <nav id="menu-icon">
+            <span>&#9776; Menu</span>
+        </nav>
+        
+        <div class="header-container">
+            <div id="menuprincipal" class="nav-menu">
+                <ul>
+                    <li><a href="../zizis.html">INICIO</a></li>
+                    <li><a href="../pages/producto.html">PRODUCTOS</a></li>
+                    <li><a href="../pages/empresa.html" class="highlight active">QUIÉNES SOMOS</a></li>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            
+            <div class="icons">
+                <a href="../pages/carrito-compras.html"><span>🛒</span> <span class="count" id="cart-count">0</span></a>
+                <a href="../zizis.html"><span>❤️</span> <span id="favorites-count" class="count">0</span></a>
+                <a href="../pages/usuario/inicio-sesion.html"><span>👤</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de "Quiénes Somos" -->
+    <main>
+        <section class="about-us">
+            <h2>Quiénes Somos</h2>
+            <p class="intro-text">En ZIZI'S, nos dedicamos a ofrecer productos de alta calidad que combinan moda, funcionalidad y estilo. Con una amplia gama de productos cuidadosamente seleccionados, nuestra misión es proporcionar a nuestros clientes una experiencia de compra única y satisfactoria.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Desde nuestros humildes comienzos, hemos trabajado incansablemente para convertirnos en una marca reconocida en el mercado. Nuestro compromiso con la calidad y la innovación nos ha permitido crecer y conectar con una comunidad vibrante de clientes leales.</p>
+                    <p>Creemos en la importancia de brindar no solo productos excepcionales, sino también un servicio al cliente que haga la diferencia. ¡Gracias por ser parte de nuestra historia!</p>
+                </div>
+                <div class="about-images">
+                    <img src="../images/empresa/equipozizi.jpg" alt="Equipo de Zizi's">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección de Redes Sociales y Contacto -->
+    <section class="social-contact">
+        <h2>SÍGUENOS</h2>
+        <a href="../zizis.html" target="_blank">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </a>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="../images/logos/logoinsta.jpg" alt="Instagram"></a>
+            <a href="https://tiktok.com" target="_blank">
+                <img src="../images/logos/logo toktok.png" alt="TikTok"></a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="../images/logos/logoface.png" alt="Facebook"></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ZIZI'S - Derechos muy reservados.</p>
+    </footer>
+
+    <!-- Script para desplegar el menú en pantallas pequeñas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

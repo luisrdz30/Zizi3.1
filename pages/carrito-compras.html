@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - ZIZI'S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+
+    <!-- Encabezado con Menú de Navegación y Título Centrado -->
+    <header>
+        <div class="logo">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+        
+        <!-- Icono del menú para pantallas pequeñas -->
+        <nav id="menu-icon">
+            <span>&#9776; Menu</span>
+        </nav>
+        
+        <div class="header-container">
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="../zizis.html" class="active">INICIO</a></li>
+                    <li><a href="./producto.html">PRODUCTOS</a></li>
+                    <li><a href="./empresa.html" class="highlight">QUIÉNES SOMOS</a></li>
+                    <li><a href="./contacto.html">CONTACTO</a></li>
+                    <li><a href="./ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            
+            <div class="icons">
+                <a href="./carrito-compras.html"><span>🛒</span> <span class="count">0</span></a>
+                <a href="../zizis.html"><span>❤️</span> <span class="count">0</span></a>
+                <a href="./usuario/inicio-sesion.html"><span>👤</span></a>
+                <a id="settings-icon" href="javascript:void(0)" onclick="toggleSettings()">
+                    ⚙️
+                </a>
+            </div>
+        </div>
+    </header>
+
+        <!-- Ventana de Configuración -->
+    <div id="settings-window" class="settings-window hidden">
+        <h3>Configuración</h3>
+        <label for="theme">Tema:</label>
+        <select id="theme">
+            <option value="">Claro</option>
+            <option value="dark-theme">Oscuro</option>
+        </select>
+        <label for="fontSize">Tamaño de Fuente:</label>
+        <select id="fontSize">
+            <option value="">Normal</option>
+            <option value="font-small">Pequeño</option>
+            <option value="font-large">Grande</option>
+        </select>
+        <button onclick="savePreferences()">Guardar</button>
+    </div>
+
+    <!-- Sección de Carrito de Compras -->
+    <main class="cart-section">
+        <h2>Tu Carrito de Compras</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Los productos del carrito se generan dinámicamente aquí -->
+            </tbody>            
+        </table>
+
+        <!-- Total del Carrito -->
+        <div class="cart-summary">
+            <h3>Total de la Compra: $0.00</h3>
+        </div>
+        
+    </main>
+
+    <!-- Sección de Redes Sociales y Contacto -->
+    <section class="social-contact">
+        <h2>SÍGUENOS</h2>
+        <a href="./zizis.html" target="_blank">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </a>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="../images/logos/logoinsta.jpg" alt="Instagram">
+            </a>
+            <a href="https://tiktok.com" target="_blank">
+                <img src="../images/logos/logo toktok.png" alt="TikTok">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="../images/logos/logoface.png" alt="Facebook">
+            </a>
+        </div>
+    </section>
+    
+    <!-- Pie de Página -->
+    <footer>
+        <p>© 2024 ZIZI'S - Derechos muy reservados.</p>
+    </footer>
+
+    <!-- Script para el menú en pantallas pequeñas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });
+    </script>
+
+    <!-- Script para manejar el carrito -->
+    <script>
+        // Función para mostrar los productos del carrito
+        function mostrarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const tbody = document.getElementById('cart-items');
+            const resumenTotal = document.querySelector('.cart-summary');
+
+            tbody.innerHTML = ''; // Limpia el contenido previo
+            let subtotal = 0;
+            const tasaIVA = 0.12; // IVA del 12%
+
+            if (carrito.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6">El carrito está vacío.</td></tr>';
+                resumenTotal.innerHTML = `
+                    <h3>Subtotal: $0.00</h3>
+                    <h3>IVA (12%): $0.00</h3>
+                    <h3>Total Final: $0.00</h3>
+                    <button class="checkout-button" onclick="procederAlPago()" disabled>Proceder al Pago</button>
+                `;
+                return;
+            }
+
+            carrito.forEach((producto, index) => {
+                const totalProducto = (producto.precio * producto.cantidad).toFixed(2);
+                subtotal += parseFloat(totalProducto);
+
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td data-label="Producto">
+                        <img src="${producto.imagen}" alt="${producto.nombre}" class="cart-item-image">
+                    </td>
+                    <td data-label="Descripción">${producto.nombre}</td>
+                    <td data-label="Precio Unitario">$${producto.precio.toFixed(2)}</td>
+                    <td data-label="Cantidad">
+                        <button onclick="modificarCantidad(${index}, -1)">➖</button>
+                        ${producto.cantidad}
+                        <button onclick="modificarCantidad(${index}, 1)">➕</button>
+                    </td>
+                    <td data-label="Total">$${totalProducto}</td>
+                    <td data-label="Eliminar">
+                        <button class="remove-button" onclick="eliminarProducto(${index})">❌</button>
+                    </td>
+                `;
+                tbody.appendChild(fila);
+            });
+
+            // Calcular IVA y total final
+            const iva = (subtotal * tasaIVA).toFixed(2);
+            const totalFinal = (subtotal + parseFloat(iva)).toFixed(2);
+
+            // Guardar el total en sessionStorage
+            sessionStorage.setItem('totalFinal', totalFinal);
+
+            // Mostrar resumen del carrito
+            resumenTotal.innerHTML = `
+                <h3>Subtotal: $${subtotal.toFixed(2)}</h3>
+                <h3>IVA (12%): $${iva}</h3>
+                <h3>Total Final: $${totalFinal}</h3>
+                <button class="checkout-button" onclick="procederAlPago()">Proceder al Pago</button>
+            `;
+        }
+
+        // Modificar la cantidad de un producto en el carrito
+        function modificarCantidad(index, cambio) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito[index].cantidad += cambio;
+
+            if (carrito[index].cantidad <= 0) {
+                carrito.splice(index, 1); // Eliminar producto si la cantidad es 0
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        // Eliminar un producto del carrito
+        function eliminarProducto(index) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1); // Eliminar producto por índice
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        // Vaciar todo el carrito
+        function vaciarCarrito() {
+            localStorage.removeItem('carrito');
+            mostrarCarrito();
+        }
+
+        // Proceder al pago
+        function procederAlPago() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            if (carrito.length === 0) {
+                alert("El carrito está vacío. Agrega productos antes de proceder al pago.");
+                return;
+            }
+            alert("Gracias por tu compra. Redirigiendo al pago...");
+            window.location.href = "./pago.html"; // Redirigir a la página de pago
+        }
+
+        // Mostrar el carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', mostrarCarrito);
+
+    </script>
+    <script>
+        function toggleSettings() {
+            const settingsWindow = document.getElementById('settings-window');
+            settingsWindow.classList.toggle('hidden');
+        }
+
+        function savePreferences() {
+            const theme = document.getElementById('theme').value;
+            const fontSize = document.getElementById('fontSize').value;
+            localStorage.setItem('theme', theme);
+            localStorage.setItem('fontSize', fontSize);
+            applyPreferences();
+        }
+
+        function applyPreferences() {
+            const theme = localStorage.getItem('theme');
+            const fontSize = localStorage.getItem('fontSize');
+            document.body.className = ''; // Limpia las clases existentes
+            if (theme) {
+                document.body.classList.add(theme);
+            }
+            if (fontSize) {
+                document.body.classList.add(fontSize);
+            }
+
+            // Asegurar que los labels siempre sean visibles
+            const labels = document.querySelectorAll('.settings-window label');
+            labels.forEach(label => {
+                label.style.fontSize = 'inherit';
+            });
+        }
+
+        function closeSettingsOnOutsideClick(event) {
+            const settingsWindow = document.getElementById('settings-window');
+            const settingsIcon = document.getElementById('settings-icon');
+            if (!settingsWindow.contains(event.target) && event.target !== settingsIcon) {
+                settingsWindow.classList.add('hidden');
+            }
+        }
+
+        window.onload = function () {
+            applyPreferences(); // Aplica las preferencias al cargar la página
+
+            // Detectar clics fuera de la ventana para cerrarla
+            document.addEventListener('click', closeSettingsOnOutsideClick);
+        };
+    </script>
+    <!-- Script para desplegar el menú en pantallas pequeñas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

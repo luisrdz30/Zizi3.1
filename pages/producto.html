@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - ZIZI'S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+
+    <!-- Encabezado con Menú de Navegación y Título Centrado -->
+    <header>
+        <div class="logo">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+        
+        <!-- Icono del menú para pantallas pequeñas -->
+        <nav id="menu-icon">
+            <span>&#9776; Menu</span> <!-- Icono del menú para móviles -->
+        </nav>
+        
+        <div class="header-container">
+            <div id="menuprincipal" class="nav-menu">
+                <ul>
+                    <li><a href="../zizis.html" class="active">INICIO</a></li>
+                    <li><a href="../pages/producto.html">PRODUCTOS</a></li>
+                    <li><a href="../pages/empresa.html" class="highlight">QUIÉNES SOMOS</a></li>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            
+            <div class="icons">
+                <a href="#" onclick="checkLogin()">
+                    <span>🛒</span> <span class="count carrito-count">0</span>
+                </a>                
+                <a href="../zizis.html">
+                  <span>❤️</span> <span class="count wishlist-count">0</span>
+                </a>
+                <a href="./usuario/inicio-sesion.html">
+                  <span>👤</span>
+                </a>
+              </div>
+              
+        </div>
+    </header>
+
+    <main>
+        <h1>Nuestros Productos</h1>
+        <div class="galeria">
+        <!-- Producto 1 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/bolso-hombre.jpg" onclick="abrirModal('BOLSO HOMBRE', 'Bolso', ['../images/producto/bolso-hombre.jpg','../images/producto/bolso-hombre2.jpeg','../images/producto/bolso-hombre3.jpeg','../images/producto/bolso-hombre4.jpeg','../images/producto/bolso-hombre5.jpeg'], '20,00 $')" alt="Bolso Hombre">
+            <div class="descripcion">BOLSO HOMBRE</div>
+            <div class="price">20,00 $</div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/camiseta.jpg" onclick="abrirModal('CAMISETA CLÁSICA', 'Camiseta', ['../images/producto/camiseta.jpg','../images/producto/camiseta2.jpeg','../images/producto/camiseta3.jpeg','../images/producto/camiseta4.jpeg','../images/producto/camiseta5.jpeg'], '15,00 $')" alt="Camiseta">
+            <div class="descripcion">CAMISETA CLÁSICA</div>
+            <div class="price">15,00 $</div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/camiseta-blanca.jpg" onclick="abrirModal('CAMISETA BLANCA', 'Camiseta Blanca', ['../images/producto/camiseta-blanca.jpg','../images/producto/camiseta-blanca2.jpeg','../images/producto/camiseta-blanca3.jpeg','../images/producto/camiseta-blanca4.jpeg','../images/producto/camiseta-blanca5.jpeg'], '10,00 $')" alt="Camiseta Blanca">
+            <div class="descripcion">CAMISETA BLANCA</div>
+            <div class="price">10,00 $</div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/gorra.jpg" onclick="abrirModal('GORRA BÁSICA', 'Gorra', ['../images/producto/gorra.jpg','../images/producto/gorra2.jpeg','../images/producto/gorra3.jpeg','../images/producto/gorra4.jpeg','../images/producto/gorra5.jpeg'], '12,00 $')" alt="Gorra">
+            <div class="descripcion">GORRA BÁSICA</div>
+            <div class="price">12,00 $</div>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/gorra-lana.jpg" onclick="abrirModal('GORRA DE LANA', 'Gorra de Lana', ['../images/producto/gorra-lana.jpg','../images/producto/gorra-lana2.jpeg','../images/producto/gorra-lana3.jpeg','../images/producto/gorra-lana4.jpeg','../images/producto/gorra-lana5.jpeg'], '18,00 $')" alt="Gorra de Lana">
+            <div class="descripcion">GORRA DE LANA</div>
+            <div class="price">18,00 $</div>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/hoodie-blanco.jpg" onclick="abrirModal('HOODIE BLANCO', 'Hoodie Blanco', ['../images/producto/hoodie-blanco.jpg','../images/producto/hoodie-blanco2.jpeg','../images/producto/hoodie-blanco3.jpeg','../images/producto/hoodie-blanco4.jpeg','../images/producto/hoodie-blanco5.jpeg'], '30,00 $')" alt="Hoodie Blanco">
+            <div class="descripcion">HOODIE BLANCO</div>
+            <div class="price">30,00 $</div>
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/mochila.jpg" onclick="abrirModal('MOCHILA NEGRA', 'Mochila Negra', ['../images/producto/mochila.jpg','../images/producto/mochila2.jpeg','../images/producto/mochila3.jpeg','../images/producto/mochila4.jpeg','../images/producto/mochila5.jpeg'], '35,00 $')" alt="Mochila Negra">
+            <div class="descripcion">MOCHILA NEGRA</div>
+            <div class="price">35,00 $</div>
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/peluche-gato.jpg" onclick="abrirModal('PELUCHE GATO', 'Peluche Gato', ['../images/producto/peluche-gato.jpg','../images/producto/peluche-gato2.jpeg','../images/producto/peluche-gato3.jpeg','../images/producto/peluche-gato4.jpeg','../images/producto/peluche-gato5.jpeg'], '25,00 $')" alt="Peluche Gato">
+            <div class="descripcion">PELUCHE GATO</div>
+            <div class="price">25,00 $</div>
+        </div>
+
+        <!-- Producto 9 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/peluche-salchicha.jpg" onclick="abrirModal('PELUCHE SALCHICHA', 'Peluche Salchicha', ['../images/producto/peluche-salchicha.jpg','../images/producto/peluche-salchicha2.jpg','../images/producto/peluche-salchicha3.jpeg','../images/producto/peluche-salchicha4.jpeg','../images/producto/peluche-salchicha5.jpeg'], '24,00 $')" alt="Peluche Salchicha">
+            <div class="descripcion">PELUCHE SALCHICHA</div>
+            <div class="price">24,00 $</div>
+        </div>
+
+        <!-- Producto 10 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/ropa2.jpg" onclick="abrirModal('CONJUNTO CASUAL', 'Conjunto Casual', ['../images/producto/ropa2.jpg','../images/producto/ropa22.jpeg','../images/producto/ropa23.jpeg','../images/producto/ropa24.jpeg','../images/producto/ropa25.jpeg'], '40,00 $')" alt="Ropa Casual">
+            <div class="descripcion">CONJUNTO CASUAL</div>
+            <div class="price">40,00 $</div>
+        </div>
+
+        <!-- Producto 11 -->
+        <div class="producto">
+            <img class="imagen" src="../images/producto/ropa3.jpg" onclick="abrirModal('CONJUNTO URBANO', 'Conjunto Urbano', ['../images/producto/ropa3.jpg','../images/producto/ropa32.jpeg','../images/producto/ropa33.jpeg','../images/producto/ropa34.jpeg','../images/producto/ropa35.jpeg'], '42,00 $')" alt="Ropa Urbana">
+            <div class="descripcion">CONJUNTO URBANO</div>
+            <div class="price">42,00 $</div>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal">
+            <div id="modal-content">
+                <button class="close-btn" onclick="cerrarModal()">×</button>
+                <img id="main-img" src="" alt="">
+                <div class="modal-img-container" id="modal-img-container"></div>
+                <div id="modal-desc" class="descripcion"></div>
+                <div class="price"></div>
+                <button class="wishlist-button" onclick="toggleFavorite()">❤️</button>
+
+                <!-- Controles de Cantidad -->
+                <div class="quantity-controls">
+                    <button onclick="adjustQuantity(-1)">-</button>
+                    <input type="number" id="cantidad" min="1" value="1">
+                    <button onclick="adjustQuantity(1)">+</button>
+                </div>
+                
+                <button class="comprar-btn" onclick="comprarProducto()">Comprar</button>
+            </div>
+        </div>
+            
+    </main>
+    
+    <footer>
+        <p>© 2024 ZIZI'S - Derechos muy reservados.</p>
+    </footer>
+
+    <!-- Script para desplegar el menú en pantallas pequeñas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });
+    </script>
+
+    <!-- Script para actualizar el contador de favoritos y carrito -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Inicialización de contadores
+            let cartCount = 0;
+            let favoriteCount = 0;
+            
+            const cartCountElement = document.querySelector(".carrito-count");
+            const wishlistCountElement = document.querySelector(".wishlist-count");
+            
+            // Lógica para los botones de favoritos (corazones)
+            
+            // Lógica para los controles de cantidad
+            document.querySelectorAll(".quantity-controls").forEach(control => {
+                const quantityInput = control.querySelector(".quantity");
+                const plusButton = control.querySelector(".plus");
+                const minusButton = control.querySelector(".minus");
+    
+                plusButton.addEventListener("click", () => {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                });
+    
+                minusButton.addEventListener("click", () => {
+                    if (quantityInput.value > 0) {
+                        quantityInput.value = parseInt(quantityInput.value) - 1;
+                    }
+                });
+            });
+    
+            // Lógica para el botón "Agregar al Carrito" con la nueva clase `.add-to-cart-button`
+            document.querySelectorAll(".add-to-cart-button").forEach(button => {
+                button.addEventListener("click", function() {
+                    // Encuentra el campo de cantidad relacionado con este botón
+                    const quantityInput = this.previousElementSibling.querySelector(".quantity");
+                    const quantity = parseInt(quantityInput.value);
+                    
+                    if (quantity > 0) {
+                        cartCount += quantity;
+                        cartCountElement.textContent = cartCount;
+                        quantityInput.value = 0; // Resetea la cantidad después de agregar al carrito
+                    }
+                });
+            });
+        });
+    </script> 
+
+    <script>
+        let productoActual = '';
+        let precioActual = 0;
+        let imagenPrincipal = '';
+
+
+        function abrirModal(nombreProducto, descripcion, imagenes, precio) {
+            productoActual = nombreProducto;
+            precioActual = parseFloat(precio.replace(',', '.')); // Convierte el precio a número
+            imagenPrincipal = imagenes[0]; // Toma la primera imagen como principal
+
+            // Mostrar el modal
+            document.getElementById("modal").style.display = "flex";
+
+            // Establecer la primera imagen como principal
+            imagenPrincipal = imagenes[0];
+            document.getElementById("main-img").src = imagenPrincipal;
+
+            // Mostrar la descripción
+            document.getElementById("modal-desc").textContent = descripcion;
+
+            // Actualizar la información en el modal
+            document.getElementById("main-img").src = imagenPrincipal;
+            document.getElementById("modal-desc").textContent = descripcion;
+            document.querySelector(".price").textContent = `$${precioActual.toFixed(2)}`;
+
+            // Generar miniaturas para las imágenes
+            const contenedorMiniaturas = document.getElementById("modal-img-container");
+            contenedorMiniaturas.innerHTML = '';
+            imagenes.forEach((imgSrc, index) => {
+                const img = document.createElement("img");
+                img.src = imgSrc;
+                img.className = "modal-img" + (index === 0 ? " active" : "");
+                img.onclick = function () {
+                    seleccionarImagenPrincipal(imgSrc);
+                };
+                contenedorMiniaturas.appendChild(img);
+            });
+            // Inicializar el estado del botón de favoritos
+            const wishlistButton = document.querySelector(".wishlist-button");
+            if (favoritos[productoActual]) {
+                wishlistButton.classList.add("active");
+                wishlistButton.textContent = "❤️";
+            } else {
+                wishlistButton.classList.remove("active");
+                wishlistButton.textContent = "♡";
+            }
+        }
+        
+        function seleccionarImagenPrincipal(src) {
+            imagenPrincipal = src;
+            document.getElementById("main-img").src = src;
+
+            // Actualizar la clase activa en las miniaturas
+            const miniaturas = document.querySelectorAll(".modal-img");
+            miniaturas.forEach(img => img.classList.remove("active"));
+            document.querySelector(`.modal-img[src="${src}"]`).classList.add("active");
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function comprarProducto() {
+            const cantidad = parseInt(document.getElementById("cantidad").value);
+            if (cantidad <= 0) {
+                alert("Por favor, selecciona una cantidad válida.");
+                return;
+            }
+
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Verifica si el producto ya existe en el carrito
+            let productoExistente = carrito.find(item => item.nombre === productoActual);
+
+            if (productoExistente) {
+                productoExistente.cantidad += cantidad;
+            } else {
+                // Agrega el producto con todos los detalles
+                carrito.push({
+                    nombre: productoActual,
+                    precio: parseFloat(precioActual), // Asegúrate de que el precio es un número
+                    cantidad: cantidad,
+                    imagen: imagenPrincipal // Usa la imagen principal del modal
+                });
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            actualizarContadorCarrito();
+            alert(`${cantidad} unidad(es) de ${productoActual} han sido añadidas al carrito.`);
+            cerrarModal();
+        }
+
+
+        // Función para actualizar el contador de productos en el carrito
+        function actualizarContadorCarrito() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let totalCantidad = carrito.reduce((total, item) => total + item.cantidad, 0);
+            document.querySelector(".carrito-count").textContent = totalCantidad;
+        }
+
+
+        // Función para ajustar la cantidad en el modal
+        function adjustQuantity(change) {
+            const quantityInput = document.getElementById("cantidad");
+            let quantity = parseInt(quantityInput.value) + change;
+            if (quantity < 1) quantity = 1; // Asegura que no sea menor a 1
+            quantityInput.value = quantity;
+        }
+        function toggleFavorite() {
+        const wishlistButton = document.querySelector(".wishlist-button");
+        wishlistButton.classList.toggle("active");
+        const isActive = wishlistButton.classList.contains("active");
+        wishlistButton.textContent = isActive ? "❤️" : "♡";
+
+        // Inicializar el contador de productos al cargar la página
+        document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
+        
+    }
+    </script>
+
+    <script>
+        function checkLogin() {
+            const email = localStorage.getItem('email');
+            const password = localStorage.getItem('password');
+
+            // Verificar si las credenciales están en localStorage
+            if (email === 'user@gmail.com' && password === 'alfajor') {
+                // Redirigir al carrito de compras si ya inició sesión
+                window.location.href = './carrito-compras.html';
+            } else {
+                // Si no ha iniciado sesión, redirigir a la página de inicio de sesión
+                window.location.href = './usuario/inicio-sesion.html';
+            }
+        }
+    </script>
+
+    </body>
+</html>

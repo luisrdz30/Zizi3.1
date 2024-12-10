@@ -1,0 +1,5 @@
+Nombre: Juan P�rez, Email: juan@example.com, Dirección: Calle 123, Teléfono: 1234567890, Sexo: Male, Edad: 25, Fecha de Nacimiento: 1999-05-15, Usuario: juanperez
+Nombre: Luis Rodriguez, Email: lers2901@gmail.com, Dirección: Conocoto, Olmedo, Teléfono: 0984219527, Sexo: Male, Edad: 21, Fecha de Nacimiento: 2022-02-12, Usuario: 1751607605
+Nombre: luis rodrigues, Email: lers@pip.com, Dirección: quito, Teléfono: 0983000573, Sexo: Male, Edad: 12, Fecha de Nacimiento: 2004-01-29, Usuario: lers
+Nombre: Luis Rodriguez, Email: lers2901@gmail.com, Dirección: Conocoto, Olmedo, Teléfono: 0984219527, Sexo: Male, Edad: 22, Fecha de Nacimiento: 1111-11-21, Usuario: luisrdz141
+Nombre: Sarahi Valencia, Email: sari@gmail.com, Dirección: Los Planetas, Teléfono: 0983000573, Sexo: Female, Edad: 20, Fecha de Nacimiento: 2004-10-30, Usuario: Sari

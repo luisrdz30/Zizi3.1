@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - ZIZI'S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+
+    <!-- Encabezado con Menú de Navegación y Título Centrado -->
+    <header>
+        <div class="logo">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+        
+        <!-- Icono del menú para pantallas pequeñas -->
+        <nav id="menu-icon">
+            <span>&#9776; Menu</span>
+        </nav>
+        
+        <div class="header-container">
+            <div id="menuprincipal" class="nav-menu">
+                <ul>
+                    <li><a href="../zizis.html">INICIO</a></li>
+                    <li><a href="../pages/producto.html">PRODUCTOS</a></li>
+                    <li><a href="../pages/empresa.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="../pages/contacto.html" class="highlight active">CONTACTO</a></li>
+                    <li><a href="../pages/ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            
+            <div class="icons">
+                <a href="../pages/carrito-compras.html"><span>🛒</span> <span class="count" id="cart-count">0</span></a>
+                <a href="../zizis.html"><span>❤️</span> <span id="favorites-count" class="count">0</span></a>
+                <a href="../pages/usuario/inicio-sesion.html"><span>👤</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Contacto -->
+    <main>
+        <section class="contact-form-section">
+            <h2>Contáctanos</h2>
+            <p>Déjanos tus comentarios, testimonios o sugerencias. Nos encantaría saber de ti.</p>
+            <form class="contact-form">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea>
+
+                <button type="submit" class="submit-button">Enviar Mensaje</button>
+            </form>
+            <p class="form-response" id="form-response"></p>
+        </section>
+    </main>
+
+    <!-- Sección de Redes Sociales y Contacto -->
+    <section class="social-contact">
+        <h2>SÍGUENOS</h2>
+        <a href="../zizis.html" target="_blank">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </a>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="../images/logos/logoinsta.jpg" alt="Instagram"></a>
+            <a href="https://tiktok.com" target="_blank">
+                <img src="../images/logos/logo toktok.png" alt="TikTok"></a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="../images/logos/logoface.png" alt="Facebook"></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ZIZI'S - Derechos muy reservados.</p>
+    </footer>
+
+    <script>
+        // Script para desplegar el menú en pantallas pequeñas
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuIcon = document.getElementById("menu-icon");
+            var menu = document.querySelector(".nav-menu ul");
+            var visible = false;
+
+            menuIcon.addEventListener("click", function() {
+                if (!visible) {
+                    menu.classList.add("visible");
+                    visible = true;
+                } else {
+                    menu.classList.remove("visible");
+                    visible = false;
+                }
+            });
+        });       
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".contact-form");
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const messageInput = document.getElementById("message");
+            const formResponse = document.getElementById("form-response");
+
+            // Función para mostrar errores
+            const showError = (input, message) => {
+                input.setCustomValidity(message);
+                input.reportValidity();
+            };
+
+            // Función para limpiar errores
+            const clearError = (input) => {
+                input.setCustomValidity("");
+            };
+
+            // Validación en tiempo real
+            nameInput.addEventListener("input", () => {
+                if (nameInput.validity.valueMissing) {
+                    showError(nameInput, "Por favor, ingresa tu nombre.");
+                } else {
+                    clearError(nameInput);
+                }
+            });
+
+            emailInput.addEventListener("input", () => {
+                if (emailInput.validity.valueMissing) {
+                    showError(emailInput, "Por favor, ingresa tu correo electrónico.");
+                } else if (emailInput.validity.typeMismatch) {
+                    showError(emailInput, "Por favor, ingresa un correo electrónico válido.");
+                } else {
+                    clearError(emailInput);
+                }
+            });
+
+            messageInput.addEventListener("input", () => {
+                if (messageInput.validity.valueMissing) {
+                    showError(messageInput, "Por favor, escribe un mensaje.");
+                } else {
+                    clearError(messageInput);
+                }
+            });
+
+            // Validación al enviar
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                if (form.checkValidity()) {
+                    formResponse.textContent = "Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.";
+                    formResponse.style.color = "green";
+                    form.reset();
+                } else {
+                    formResponse.textContent = "Por favor, corrige los errores antes de enviar.";
+                    formResponse.style.color = "red";
+                    [nameInput, emailInput, messageInput].forEach(input => input.reportValidity());
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

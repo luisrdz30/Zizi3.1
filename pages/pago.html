@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - ZIZI'S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </div>
+        <nav id="menu-icon"><span>&#9776; Menu</span></nav>
+        <div class="header-container">
+            <div id="menuprincipal" class="nav-menu">
+                <ul>
+                    <li><a href="../zizis.html" class="active">INICIO</a></li>
+                    <li><a href="../pages/producto.html">PRODUCTOS</a></li>
+                    <li><a href="../pages/empresa.html" class="highlight">QUIÉNES SOMOS</a></li>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/ubicacion.html">TIENDAS</a></li>
+                </ul>
+            </div>
+            <div class="icons">
+                <a href="../pages/carrito-compras.html"><span>🛒</span> <span class="count" id="cart-count">0</span></a>
+                <a href="../zizis.html"><span>❤️</span> <span id="favorites-count" class="count">0</span></a>
+                <a href="../pages/usuario/inicio-sesion.html"><span>👤</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="payment-section">
+            <h1>Confirmación de Pago</h1>
+            <div class="payment-total">
+                <h2 id="total-final">Cargando total...</h2>
+                <button class="checkout-button" onclick="confirmarPago()">Confirmar Pago</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="social-contact">
+        <h2>SÍGUENOS</h2>
+        <a href="../zizis.html" target="_blank">
+            <img src="../images/logos/logoZizi.png" alt="Zizi's Logo">
+        </a>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank">
+                <img src="../images/logos/logoinsta.jpg" alt="Instagram"></a>
+            <a href="https://tiktok.com" target="_blank">
+                <img src="../images/logos/logo toktok.png" alt="TikTok"></a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="../images/logos/logoface.png" alt="Facebook"></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 ZIZI'S - Derechos muy reservados.</p>
+    </footer>
+
+    <!-- Script para cargar el total del pago -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalFinal = sessionStorage.getItem('totalFinal');
+            if (totalFinal) {
+                document.getElementById('total-final').textContent = `Total a pagar: $${totalFinal}`;
+            } else {
+                document.getElementById('total-final').textContent = "No se encontró un total para mostrar.";
+            }
+        });
+
+        function confirmarPago() {
+            const totalFinal = sessionStorage.getItem('totalFinal');
+            if (!totalFinal) {
+                alert("No hay un total para procesar el pago.");
+                return;
+            }
+            alert(`Gracias por tu compra. Has pagado $${totalFinal}.`);
+            sessionStorage.removeItem('totalFinal'); // Limpiar el total después del pago
+            localStorage.clear(); // Borrar todos los datos de localStorage
+            window.location.href = "../zizis.html"; // Redirigir al inicio
+        }
+    </script>
+    
+</body>
+</html>
